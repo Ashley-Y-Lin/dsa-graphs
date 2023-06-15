@@ -211,101 +211,101 @@ describe("DFS", function () {
   });
 });
 
-// describe("BFS", function () {
-//   it("should return an array of the nodes searched using BFS", function () {
-//     // build complex graph
-//     //
-//     //                       Q --P -- S
-//     //                      /  \ |      \
-//     //                     R     X  ---  U
-//     //                     | \   |  \   /
-//     //                     |  \  |    V
-//     //                      \    Y    |
-//     //                       \     \  /
-//     //                         T --- W
-//     //
+describe("BFS", function () {
+  it("should return an array of the nodes searched using BFS", function () {
+    // build complex graph
+    //
+    //                       Q --P -- S
+    //                      /  \ |      \
+    //                     R     X  ---  U
+    //                     | \   |  \   /
+    //                     |  \  |    V
+    //                      \    Y    |
+    //                       \     \  /
+    //                         T --- W
+    //
 
-//     let graph = new Graph();
-//     let S = new Node("S");
-//     let P = new Node("P");
-//     let U = new Node("U");
-//     let X = new Node("X");
-//     let Q = new Node("Q");
-//     let Y = new Node("Y");
-//     let V = new Node("V");
-//     let R = new Node("R");
-//     let W = new Node("W");
-//     let T = new Node("T");
+    let graph = new Graph();
+    let S = new Node("S");
+    let P = new Node("P");
+    let U = new Node("U");
+    let X = new Node("X");
+    let Q = new Node("Q");
+    let Y = new Node("Y");
+    let V = new Node("V");
+    let R = new Node("R");
+    let W = new Node("W");
+    let T = new Node("T");
 
-//     graph.addVertices([S, P, U, X, Q, Y, V, R, W, T]);
+    graph.addVertices([S, P, U, X, Q, Y, V, R, W, T]);
 
-//     graph.addEdge(S, P);
-//     graph.addEdge(S, U);
+    graph.addEdge(S, P);
+    graph.addEdge(S, U);
 
-//     graph.addEdge(P, X);
-//     graph.addEdge(U, X);
+    graph.addEdge(P, X);
+    graph.addEdge(U, X);
 
-//     graph.addEdge(P, Q);
-//     graph.addEdge(U, V);
+    graph.addEdge(P, Q);
+    graph.addEdge(U, V);
 
-//     graph.addEdge(X, Q);
-//     graph.addEdge(X, Y);
-//     graph.addEdge(X, V);
+    graph.addEdge(X, Q);
+    graph.addEdge(X, Y);
+    graph.addEdge(X, V);
 
-//     graph.addEdge(Q, R);
-//     graph.addEdge(Y, R);
+    graph.addEdge(Q, R);
+    graph.addEdge(Y, R);
 
-//     graph.addEdge(Y, W);
-//     graph.addEdge(V, W);
+    graph.addEdge(Y, W);
+    graph.addEdge(V, W);
 
-//     graph.addEdge(R, T);
-//     graph.addEdge(W, T);
+    graph.addEdge(R, T);
+    graph.addEdge(W, T);
 
-//     let results = graph.breadthFirstSearch(S);
+    let results = graph.breadthFirstSearch(S);
 
-//     expect(results.indexOf("P") < results.indexOf("Y")).toBe(true);
-//     expect(results.indexOf("P") < results.indexOf("V")).toBe(true);
-//     expect(results.indexOf("P") < results.indexOf("Q")).toBe(true);
-//     expect(results.indexOf("U") < results.indexOf("Y")).toBe(true);
-//     expect(results.indexOf("U") < results.indexOf("V")).toBe(true);
-//     expect(results.indexOf("U") < results.indexOf("Q")).toBe(true);
-//     expect(results.indexOf("X") < results.indexOf("Y")).toBe(true);
-//     expect(results.indexOf("X") < results.indexOf("V")).toBe(true);
-//     expect(results.indexOf("X") < results.indexOf("Q")).toBe(true);
-//   });
-// });
+    expect(results.indexOf("P") < results.indexOf("Y")).toBe(true);
+    expect(results.indexOf("P") < results.indexOf("V")).toBe(true);
+    expect(results.indexOf("P") < results.indexOf("Q")).toBe(true);
+    expect(results.indexOf("U") < results.indexOf("Y")).toBe(true);
+    expect(results.indexOf("U") < results.indexOf("V")).toBe(true);
+    expect(results.indexOf("U") < results.indexOf("Q")).toBe(true);
+    expect(results.indexOf("X") < results.indexOf("Y")).toBe(true);
+    expect(results.indexOf("X") < results.indexOf("V")).toBe(true);
+    expect(results.indexOf("X") < results.indexOf("Q")).toBe(true);
+  });
+});
 
-// describe("distanceOfShortestPath", function () {
-//   it("should return distance of shortest path from start to end vertices", function () {
-//     // build graph
-//     //
-//     //            R
-//     //         /  |  \
-//     //        I - T - H
-//     //                |
-//     //                M
-//     //
+describe("distanceOfShortestPath", function () {
+  it("should return distance of shortest path from start to end vertices", function () {
+    // build graph
+    //
+    //            R
+    //         /  |  \
+    //        I - T - H
+    //                |
+    //                M
+    //
 
-//     let graph = new Graph();
+    let graph = new Graph();
 
-//     let r = new Node("R");
-//     let i = new Node("I");
-//     let t = new Node("T");
-//     let h = new Node("H");
-//     let m = new Node("M");
+    let r = new Node("R");
+    let i = new Node("I");
+    let t = new Node("T");
+    let h = new Node("H");
+    let m = new Node("M");
 
-//     graph.addVertices([r, i, t, h, m]);
+    graph.addVertices([r, i, t, h, m]);
 
-//     graph.addEdge(r, i);
-//     graph.addEdge(r, t);
-//     graph.addEdge(r, h);
-//     graph.addEdge(i, t);
-//     graph.addEdge(t, h);
-//     graph.addEdge(h, m);
+    graph.addEdge(r, i);
+    graph.addEdge(r, t);
+    graph.addEdge(r, h);
+    graph.addEdge(i, t);
+    graph.addEdge(t, h);
+    graph.addEdge(h, m);
 
-//     expect(graph.distanceOfShortestPath(r, m)).toBe(2);
-//     expect(graph.distanceOfShortestPath(t, r)).toBe(1);
-//     expect(graph.distanceOfShortestPath(t, m)).toBe(2);
-//     expect(graph.distanceOfShortestPath(t, "rogue node")).toBe(undefined);
-//   });
-// });
+    expect(graph.distanceOfShortestPath(r, m)).toBe(2);
+    expect(graph.distanceOfShortestPath(t, r)).toBe(1);
+    expect(graph.distanceOfShortestPath(t, m)).toBe(2);
+    expect(graph.distanceOfShortestPath(t, "rogue node")).toBe(undefined);
+  });
+});

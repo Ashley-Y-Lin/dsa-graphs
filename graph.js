@@ -53,7 +53,7 @@ class Graph {
   }
 
   /** traverse graph with DFS and returns array of Node values */
-  depthFirstSearch(start, values = [], seen = new Set()) {
+  depthFirstSearch(start, values = [], seen = new Set([start])) {
     values.push(start.value);
 
     for (let adjacent of start.adjacent) {
@@ -66,11 +66,56 @@ class Graph {
     return values;
   }
 
-  /** traverse graph with BDS and returns array of Node values */
-  breadthFirstSearch(start) { }
+  /** traverse graph with BFS and returns array of Node values */
+  breadthFirstSearch(start) {
+    const visitQueue = [start];
+    const seen = new Set(visitQueue);
+
+    const visited = [];
+
+    while (visitQueue.length) {
+      const node = visitQueue.shift();
+
+      visited.push(node.value);
+
+      for (const adj of node.adjacent) {
+        if (!seen.has(adj)) {
+          seen.add(adj);
+          visitQueue.push(adj);
+        }
+      }
+    }
+
+    return visited;
+  }
 
   /** find the distance of the shortest path from the start vertex to the end vertex */
-  distanceOfShortestPath(start, end) { }
+  distanceOfShortestPath(start, end) {
+    const startState = {
+      node: start,
+      distance: 0,
+    };
+
+    const visitQueue = [startState];
+    const seen = new Set([start]);
+
+    while (visitQueue.length) {
+      const { node, distance } = visitQueue.shift();
+
+      if (node === end) {
+        return distance;
+      }
+
+      for (const adj of node.adjacent) {
+        if (!seen.has(adj)) {
+          seen.add(adj);
+          visitQueue.push({ node: adj, distance: distance + 1 });
+        }
+      }
+    }
+
+    return undefined;
+  }
 }
 
 module.exports = { Graph, Node };
